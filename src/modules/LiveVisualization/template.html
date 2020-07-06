@@ -1,0 +1,61 @@
+<div :class="$style.container">
+  <v-container fluid fill-height align-center :class="$style.topBar">
+    <v-layout row justify-start align-center>
+      <v-flex xs1 justify-center>
+        <v-icon :color="color">{{ module.icon }}</v-icon>
+      </v-flex>
+      <v-flex justify-start>
+        <label :class="$style.title" :color="color">{{ module.label }}</label>
+      </v-flex>
+      <v-spacer />
+      <v-btn flat icon @click="removeActiveModule" :color="color">
+        <v-icon>{{ $vuetify.icons.pvLite.cancel }}</v-icon>
+      </v-btn>
+    </v-layout>
+  </v-container>
+  <v-list :class="$style.listPadding" v-if="!isConnected">
+    <v-divider />
+    <v-list-tile>
+      <v-list-tile-content>
+        <v-text-field
+          name="input-url"
+          label="localhost"
+          :v-model="host"
+          single-line
+        />
+      </v-list-tile-content>
+    </v-list-tile>
+    <v-list-tile>
+      <v-list-tile-content>
+        <v-text-field
+          name="input-port"
+          label="22222"
+          :v-model="port"
+          @change=""
+          single-line
+          type="number"
+        />
+      </v-list-tile-content>
+    </v-list-tile>
+    <v-list-tile>
+      <v-list-tile-content>
+        <v-btn @click="connect">Connect</v-btn>
+      </v-list-tile-content>
+    </v-list-tile>
+  </v-list>
+  <v-list v-else>
+    <v-divider />
+    <v-list-tile v-for="source in remoteSources">
+      <v-list-tile-content>
+        <v-list-tile-title :class="$style.noSelect">
+          {{ source }}
+        </v-list-tile-title>
+      </v-list-tile-content>
+      <v-list-tile-action>
+        <v-btn flat icon @click="extract(source)" :color="color">
+          <v-icon>mdi-arrow-down-circle</v-icon>
+        </v-btn>
+      </v-list-tile-action>
+    </v-list-tile>
+  </v-list>
+</div>

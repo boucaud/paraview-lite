@@ -5,6 +5,7 @@ import vtkImageStream from 'vtk.js/Sources/IO/Core/ImageStream';
 import ColorManager from 'paraview-lite/src/io/protocols/ColorManager';
 import FileListing from 'paraview-lite/src/io/protocols/FileListing';
 import KeyValuePairStore from 'paraview-lite/src/io/protocols/KeyValuePairStore';
+import LiveVisualizationHandler from 'paraview-lite/src/io/protocols/LiveVisualizationHandler';
 import MouseHandler from 'paraview-lite/src/io/protocols/MouseHandler';
 import ProgressUpdate from 'paraview-lite/src/io/protocols/ProgressUpdate';
 import ProxyManager from 'paraview-lite/src/io/protocols/ProxyManager';
@@ -34,6 +35,7 @@ const REMOTE_API = {
   VtkImageDelivery,
   // custom
   Lite,
+  LiveVisualizationHandler,
 };
 
 // ----------------------------------------------------------------------------

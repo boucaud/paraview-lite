@@ -1,6 +1,7 @@
 import ColorManager from './ColorManager';
 import FileListing from './FileListing';
 import KeyValuePairStore from './KeyValuePairStore';
+import LiveVisualizationHandler from './LiveVisualizationHandler';
 import MouseHandler from './MouseHandler';
 import ProgressUpdate from './ProgressUpdate';
 import ProxyManager from './ProxyManager';
@@ -16,6 +17,7 @@ const protocolsMap = {
   ColorManager,
   FileListing,
   KeyValuePairStore,
+  LiveVisualizationHandler,
   MouseHandler,
   ProgressUpdate,
   ProxyManager,

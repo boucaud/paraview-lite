@@ -92,6 +92,7 @@ from paraview import simple
 from wslink import server
 
 import lite_protocols as local_protocols
+import live_protocols as live_protocols
 
 import argparse
 
@@ -193,6 +194,7 @@ class _Server(pv_wslink.PVServerProtocol):
 
         # Bring used components from ParaView Lite
         self.registerVtkWebProtocol(local_protocols.ParaViewLite())
+        self.registerVtkWebProtocol(live_protocols.ParaViewWebLiveVizHandler())
 
         # Update authentication key to use
         self.updateSecret(_Server.authKey)
@@ -232,6 +234,8 @@ if __name__ == "__main__":
     _Server.add_arguments(parser)
     args = parser.parse_args()
     _Server.configure(args)
+
+    # TODO: cli connect to catalyst ??
 
     # Start server
     server.start_webserver(options=args, protocol=_Server)

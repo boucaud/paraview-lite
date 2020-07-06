@@ -28,6 +28,9 @@ import thresholdModule from 'paraview-lite/src/modules/Threshold/module';
 import DefaultComponent from 'paraview-lite/src/modules/Default';
 import defaultModule from 'paraview-lite/src/modules/Default/module';
 
+import LiveVisualization from 'paraview-lite/src/modules/LiveVisualization';
+import liveVisualizationModule from 'paraview-lite/src/modules/LiveVisualization/module';
+
 export default function registerModules(store) {
   // --------------------------------------------------------------------------
   // Widget registering
@@ -40,6 +43,10 @@ export default function registerModules(store) {
   store.commit(
     'PVL_MODULES_ADD',
     Object.assign({}, filesModule, { component: Files })
+  );
+  store.commit(
+    'PVL_MODULES_ADD',
+    Object.assign({}, liveVisualizationModule, { component: LiveVisualization })
   );
   store.commit(
     'PVL_MODULES_ADD',

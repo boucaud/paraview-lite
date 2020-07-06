@@ -42,7 +42,6 @@ export default {
         console.error(message);
         console.log(httpReq);
       });
-
       clientToConnect
         .connect(config)
         .then((validClient) => {
