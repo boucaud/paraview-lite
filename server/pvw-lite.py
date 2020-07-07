@@ -92,6 +92,7 @@ from paraview import simple
 from wslink import server
 
 import lite_protocols as local_protocols
+import cinema_protocols as c_protocols
 
 import argparse
 
@@ -193,6 +194,7 @@ class _Server(pv_wslink.PVServerProtocol):
 
         # Bring used components from ParaView Lite
         self.registerVtkWebProtocol(local_protocols.ParaViewLite())
+        self.registerVtkWebProtocol(c_protocols.ParaViewWebCinemaReader(baseDir=_Server.dataDir))
 
         # Update authentication key to use
         self.updateSecret(_Server.authKey)
