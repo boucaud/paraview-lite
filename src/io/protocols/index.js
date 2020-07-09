@@ -1,3 +1,4 @@
+import CinemaHandler from './CinemaHandler';
 import ColorManager from './ColorManager';
 import FileListing from './FileListing';
 import KeyValuePairStore from './KeyValuePairStore';
@@ -13,6 +14,7 @@ import VtkGeometryDelivery from './VtkGeometryDelivery';
 import VtkImageDelivery from './VtkImageDelivery';
 
 const protocolsMap = {
+  CinemaHandler,
   ColorManager,
   FileListing,
   KeyValuePairStore,

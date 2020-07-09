@@ -2,6 +2,7 @@ import SmartConnect from 'wslink/src/SmartConnect';
 
 import vtkImageStream from 'vtk.js/Sources/IO/Core/ImageStream';
 
+import CinemaHandler from 'paraview-lite/src/io/protocols/CinemaHandler';
 import ColorManager from 'paraview-lite/src/io/protocols/ColorManager';
 import FileListing from 'paraview-lite/src/io/protocols/FileListing';
 import KeyValuePairStore from 'paraview-lite/src/io/protocols/KeyValuePairStore';
@@ -19,6 +20,7 @@ import VtkImageDelivery from 'paraview-lite/src/io/protocols/VtkImageDelivery';
 import Lite from 'paraview-lite/src/io/protocols/Lite';
 
 const REMOTE_API = {
+  CinemaHandler,
   ColorManager,
   FileListing,
   KeyValuePairStore,

@@ -28,10 +28,26 @@ import thresholdModule from 'paraview-lite/src/modules/Threshold/module';
 import DefaultComponent from 'paraview-lite/src/modules/Default';
 import defaultModule from 'paraview-lite/src/modules/Default/module';
 
+import CinemaReader from 'paraview-lite/src/modules/CinemaReader';
+import cinemaReaderModule from 'paraview-lite/src/modules/CinemaReader/module';
+
+import CinemaFiles from 'paraview-lite/src/modules/CinemaFiles';
+import cinemaFilesModule from 'paraview-lite/src/modules/CinemaFiles/module';
+
 export default function registerModules(store) {
   // --------------------------------------------------------------------------
   // Widget registering
   // --------------------------------------------------------------------------
+
+  store.commit(
+    'PVL_MODULES_ADD',
+    Object.assign({}, cinemaFilesModule, { component: CinemaFiles })
+  );
+
+  store.commit(
+    'PVL_MODULES_ADD',
+    Object.assign({}, cinemaReaderModule, { component: CinemaReader })
+  );
 
   store.commit(
     'PVL_MODULES_ADD',

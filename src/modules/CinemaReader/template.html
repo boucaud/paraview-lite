@@ -1,0 +1,54 @@
+<div :class="$style.container">
+  <v-container fluid fill-height align-center :class="$style.topBar">
+    <v-layout row justify-start align-center>
+      <v-flex xs1 justify-center>
+        <v-icon :color="color">{{ module.icon }}</v-icon>
+      </v-flex>
+      <v-flex justify-start>
+        <label :class="$style.title" :color="color">{{ module.label }}</label>
+      </v-flex>
+      <v-spacer />
+      <v-btn flat icon @click="removeActiveModule" :color="color">
+        <v-icon>{{ $vuetify.icons.pvLite.cancel }}</v-icon>
+      </v-btn>
+    </v-layout>
+  </v-container>
+
+  <v-divider />
+  <v-card flat :class="$style.block">
+    <v-card-title :class="$style.blockTitle">
+      <span align-center justify-center class="body-2">{{ currentFileName }}</span>
+    </v-card-title>
+    <v-card-text :class="$style.blockContent">
+      <v-container fluid grid-list-md :class="$style.noPaddingMargin">
+        <v-layout row wrap align-center>
+          <v-flex xs2>
+            <v-btn flat icon @click="incrementIndex(-1)">
+              <v-icon>mdi-arrow-left</v-icon>
+            </v-btn>
+          </v-flex>
+          <v-flex xs3>
+            <v-text-field
+              name="index"
+              :value="currentIndex"
+              @change="setIndexFromString"
+              single-line
+              type="number"
+            />
+          </v-flex>
+          <v-flex xs2>
+            <span>/ {{ numberOfFiles }}</span>
+          </v-flex>
+          <v-flex xs3>
+            <v-btn flat icon @click="incrementIndex(1)">
+              <v-icon>mdi-arrow-right</v-icon>
+            </v-btn>
+          </v-flex>
+          <v-flex xs2>
+            <v-progress-circular indeterminate v-if="isLoading"/>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-card-text>
+  </v-card>
+</div>
